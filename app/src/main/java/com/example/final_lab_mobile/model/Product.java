@@ -10,6 +10,7 @@ public class Product implements Serializable {
     private double price;
     private double rating;
     private String thumbnail;
+    private String category;
 
     // Getters
     public int getId() { return id; }
@@ -18,4 +19,5 @@ public class Product implements Serializable {
     public double getPrice() { return price; }
     public double getRating() { return rating; }
     public String getThumbnail() { return thumbnail; }
+    public String getCategory() { return category; }
 }

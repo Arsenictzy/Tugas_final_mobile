@@ -2,7 +2,7 @@ package com.example.final_lab_mobile.storage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import com.example.outdoorgear.model.Product;
+import com.example.final_lab_mobile.model.Product;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;

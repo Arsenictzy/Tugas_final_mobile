@@ -3,10 +3,10 @@ package com.example.final_lab_mobile.repository;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import com.example.outdoorgear.model.Product;
-import com.example.outdoorgear.model.ProductResponse;
-import com.example.outdoorgear.network.RetrofitClient;
-import com.example.outdoorgear.storage.SharedPrefsManager;
+import com.example.final_lab_mobile.model.Product;
+import com.example.final_lab_mobile.model.ProductResponse;
+import com.example.final_lab_mobile.network.RetrofitClient;
+import com.example.final_lab_mobile.storage.SharedPrefsManager;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -30,11 +30,13 @@ public class ProductRepository {
     }
 
     public void fetchProducts(RepositoryCallback callback) {
+        // Sekarang memanggil API yang sudah di-mock dengan 50 data outdoor
         RetrofitClient.getInstance().getProducts().enqueue(new Callback<ProductResponse>() {
             @Override
             public void onResponse(Call<ProductResponse> call, Response<ProductResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     List<Product> products = response.body().getProducts();
+                    
                     executor.execute(() -> {
                         prefsManager.saveCache(products);
                         handler.post(() -> callback.onResult(products, null));
