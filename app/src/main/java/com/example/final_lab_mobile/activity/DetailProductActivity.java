@@ -1,7 +1,7 @@
 package com.example.final_lab_mobile.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide;
 import com.example.final_lab_mobile.R;
 import com.example.final_lab_mobile.model.Product;
 import com.example.final_lab_mobile.storage.SharedPrefsManager;
+import com.google.android.material.button.MaterialButton;
 
 public class DetailProductActivity extends AppCompatActivity {
     private SharedPrefsManager prefsManager;
@@ -29,7 +30,8 @@ public class DetailProductActivity extends AppCompatActivity {
             TextView tvDesc = findViewById(R.id.tvDetailDesc);
             TextView tvRating = findViewById(R.id.tvDetailRating);
             ImageView imgDetail = findViewById(R.id.imgDetail);
-            Button btnFav = findViewById(R.id.btnFavorite);
+            MaterialButton btnFav = findViewById(R.id.btnFavorite);
+            MaterialButton btnCheckout = findViewById(R.id.btnCheckout);
 
             tvName.setText(product.getTitle());
             tvPrice.setText("$" + product.getPrice());
@@ -52,10 +54,22 @@ public class DetailProductActivity extends AppCompatActivity {
                 isFav = !isFav;
                 updateFavButton(btnFav);
             });
+
+            btnCheckout.setOnClickListener(v -> {
+                if (prefsManager.isLoggedIn()) {
+                    Intent intent = new Intent(this, CheckoutActivity.class);
+                    intent.putExtra("EXTRA_PRODUCT", product);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(this, "Silakan daftar/masuk terlebih dahulu di menu Profil", Toast.LENGTH_LONG).show();
+                }
+            });
+            
+            findViewById(R.id.toolbar).setOnClickListener(v -> finish());
         }
     }
 
-    private void updateFavButton(Button btn) {
-        btn.setText(isFav ? "Hapus dari Favorite" : "Tambah ke Favorite");
+    private void updateFavButton(MaterialButton btn) {
+        btn.setText(isFav ? "DI FAVORIT" : "WISHLIST");
     }
 }

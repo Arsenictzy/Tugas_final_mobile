@@ -64,4 +64,32 @@ public class SharedPrefsManager {
     public boolean getTheme() {
         return prefs.getBoolean("DARK_MODE", false);
     }
+
+    // User Account & Session
+    public void registerUser(String email, String password) {
+        prefs.edit().putString("USER_EMAIL", email).apply();
+        prefs.edit().putString("USER_PASSWORD", password).apply();
+    }
+
+    public boolean checkLogin(String email, String password) {
+        String savedEmail = prefs.getString("USER_EMAIL", "");
+        String savedPass = prefs.getString("USER_PASSWORD", "");
+        return email.equals(savedEmail) && password.equals(savedPass);
+    }
+
+    public void setLoggedIn(boolean isLoggedIn) {
+        prefs.edit().putBoolean("IS_LOGGED_IN", isLoggedIn).apply();
+    }
+
+    public boolean isLoggedIn() {
+        return prefs.getBoolean("IS_LOGGED_IN", false);
+    }
+
+    public String getUserEmail() {
+        return prefs.getString("USER_EMAIL", "Guest");
+    }
+
+    public void logout() {
+        prefs.edit().putBoolean("IS_LOGGED_IN", false).apply();
+    }
 }

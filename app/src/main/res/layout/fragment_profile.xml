@@ -12,72 +12,104 @@
         android:padding="24dp">
 
         <TextView
+            android:id="@+id/tvProfileTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Daftar"
+            android:text="Daftar Akun"
             android:textColor="#212529"
             android:textSize="32sp"
             android:textStyle="bold"
             android:layout_marginBottom="24dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Alamat email *"
-            android:textColor="#333333"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp"/>
-
-        <EditText
-            android:id="@+id/etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:background="@drawable/bg_edittext"
-            android:hint="Email Anda"
-            android:inputType="textEmailAddress"
-            android:paddingHorizontal="12dp"
-            android:layout_marginBottom="16dp"
-            android:text="adventurer@example.com"
-            android:enabled="false"/>
-
-        <TextView
+        <LinearLayout
+            android:id="@+id/layoutAuth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tautan untuk mengatur kata sandi baru akan dikirim ke alamat e-mail Anda."
-            android:textColor="#777777"
-            android:textSize="15sp"
-            android:layout_marginBottom="16dp"/>
+            android:orientation="vertical">
 
-        <TextView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alamat email *"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@drawable/bg_edittext"
+                android:hint="Email Anda"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="12dp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kata Sandi *"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@drawable/bg_edittext"
+                android:hint="Minimal 6 karakter"
+                android:inputType="textPassword"
+                android:paddingHorizontal="12dp"
+                android:layout_marginBottom="24dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our kebijakan privasi."
+                android:textColor="#777777"
+                android:textSize="14sp"
+                android:layout_marginBottom="24dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAuth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DAFTAR"
+                android:paddingHorizontal="40dp"
+                android:paddingVertical="14dp"
+                app:cornerRadius="0dp"
+                android:backgroundTint="#212529"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="40dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutUserInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our kebijakan privasi."
-            android:textColor="#777777"
-            android:textSize="15sp"
-            android:layout_marginBottom="16dp"/>
+            android:orientation="vertical"
+            android:visibility="gone">
 
-        <CheckBox
-            android:id="@+id/cbNewsletter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sign me up for the newsletter!"
-            android:textColor="#777777"
-            android:textSize="15sp"
-            android:layout_marginBottom="24dp"/>
+            <TextView
+                android:id="@+id/tvUserEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="email@example.com"
+                android:textSize="18sp"
+                android:layout_marginBottom="8dp"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DAFTAR"
-            android:paddingHorizontal="32dp"
-            android:paddingVertical="14dp"
-            app:cornerRadius="0dp"
-            android:backgroundTint="#212529"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="40dp"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LOGOUT"
+                app:cornerRadius="0dp"
+                android:backgroundTint="#D32F2F"
+                android:layout_marginBottom="40dp"/>
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
