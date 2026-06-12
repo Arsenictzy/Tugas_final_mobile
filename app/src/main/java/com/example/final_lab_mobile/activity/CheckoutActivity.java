@@ -8,15 +8,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.example.final_lab_mobile.R;
 import com.example.final_lab_mobile.model.Product;
+import com.example.final_lab_mobile.storage.SharedPrefsManager;
 import com.google.android.material.button.MaterialButton;
 
 public class CheckoutActivity extends AppCompatActivity {
+    private SharedPrefsManager prefsManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
 
+        prefsManager = new SharedPrefsManager(this);
         Product product = (Product) getIntent().getSerializableExtra("EXTRA_PRODUCT");
 
         if (product != null) {
@@ -32,6 +35,7 @@ public class CheckoutActivity extends AppCompatActivity {
             tvTotal.setText("$" + product.getPrice());
 
             btnPay.setOnClickListener(v -> {
+                prefsManager.saveOrder(product);
                 Toast.makeText(this, "Pembayaran Berhasil! Pesanan Anda sedang diproses.", Toast.LENGTH_LONG).show();
                 finish();
             });

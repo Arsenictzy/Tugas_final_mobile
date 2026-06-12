@@ -2,17 +2,18 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Final_Lab_Mobile" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Material 3 Color Palette -->
-        <item name="colorPrimary">@color/md_theme_light_primary</item>
-        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
-        <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
-        <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/brand_secondary</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
 
-        <item name="android:windowBackground">@color/md_theme_light_background</item>
-        <item name="colorSurface">@color/md_theme_light_surface</item>
-        <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
-        <item name="colorSurfaceVariant">@color/md_theme_light_surfaceVariant</item>
-        <item name="colorOnSurfaceVariant">@color/md_theme_light_onSurfaceVariant</item>
-        <item name="colorOutline">#CED4DA</item>
+        <item name="android:windowBackground">@color/surface_light</item>
+        <item name="colorSurface">@color/surface_card</item>
+        <item name="colorOnSurface">@color/text_main</item>
+        <item name="colorSurfaceVariant">@color/surface_light</item>
+        <item name="colorOnSurfaceVariant">@color/text_muted</item>
+        <item name="colorOutline">@color/border_color</item>
+        <item name="colorOutlineVariant">@color/border_color</item>
 
         <!-- Status Bar -->
         <item name="android:statusBarColor">?attr/colorSurface</item>
@@ -20,13 +21,25 @@
 
         <!-- Typography -->
         <item name="textAppearanceTitleLarge">@style/TextAppearance.App.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.App.TitleMedium</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.App.BodyMedium</item>
     </style>
 
     <style name="Theme.Final_Lab_Mobile" parent="Base.Theme.Final_Lab_Mobile" />
 
     <style name="TextAppearance.App.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
         <item name="fontFamily">sans-serif-black</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="TextAppearance.App.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">sans-serif-medium</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.App.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
     </style>
 
     <style name="ShapeAppearance.TopRounded" parent="ShapeAppearance.Material3.MediumComponent">
